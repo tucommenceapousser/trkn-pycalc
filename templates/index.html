@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+<html data-bs-theme="dark" data-theme="blue-pink">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/calculator.js') }}" defer></script>
 </head>
 <body>
     <div class="container py-4">
@@ -30,8 +31,6 @@
                 <div class="history" id="history"></div>
                 <input type="text" class="display" id="display" readonly>
             </div>
-            
-            <!-- Rest of the calculator HTML remains the same -->
             <div class="buttons-grid basic-grid">
                 <button class="btn-calc memory" data-action="mc">MC</button>
                 <button class="btn-calc memory" data-action="mr">MR</button>
@@ -63,9 +62,7 @@
                 <button class="btn-calc number">.</button>
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
-
             <div class="buttons-grid scientific-grid hide">
-                <!-- Scientific calculator buttons -->
                 <button class="btn-calc function" data-action="clear">C</button>
                 <button class="btn-calc function" data-action="backspace">⌫</button>
                 <button class="btn-calc operator" data-action="power">x^y</button>
@@ -101,7 +98,6 @@
                 <button class="btn-calc number">.</button>
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
-
             <div class="graphing-interface hide">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="function-input" placeholder="Enter function (e.g., sin(x))">
@@ -121,6 +117,5 @@
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
 </body>
 </html>
