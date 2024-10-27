@@ -24,6 +24,29 @@ body {
     width: 100%;
 }
 
+.mode-switch {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-mode {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--neon-blue);
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px var(--neon-blue);
+}
+
+.btn-mode.active {
+    background: var(--neon-blue);
+    color: black;
+}
+
 .display-container {
     position: relative;
     margin-bottom: 20px;
@@ -69,6 +92,14 @@ body {
     gap: 10px;
 }
 
+.scientific-grid {
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.hide {
+    display: none;
+}
+
 .btn-calc {
     padding: 15px;
     border: none;
@@ -106,6 +137,11 @@ body {
 .function {
     color: var(--neon-green);
     box-shadow: 0 0 5px var(--neon-green);
+}
+
+.constant {
+    color: var(--neon-blue);
+    box-shadow: 0 0 5px var(--neon-purple);
 }
 
 .equals {

@@ -13,6 +13,11 @@ class Calculator {
     }
 
     initializeEventListeners() {
+        // Mode switching
+        document.querySelectorAll('.btn-mode').forEach(button => {
+            button.addEventListener('click', () => this.switchMode(button));
+        });
+
         // Number buttons
         document.querySelectorAll('.number').forEach(button => {
             button.addEventListener('click', () => this.appendNumber(button.textContent));
@@ -33,11 +38,25 @@ class Calculator {
             button.addEventListener('click', () => this.handleFunction(button.dataset.action));
         });
 
+        // Constant buttons
+        document.querySelectorAll('.constant').forEach(button => {
+            button.addEventListener('click', () => this.appendNumber(button.dataset.value));
+        });
+
         // Equals button
         document.querySelector('[data-action="calculate"]').addEventListener('click', () => this.calculate());
 
         // Keyboard support
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+    }
+
+    switchMode(button) {
+        document.querySelectorAll('.btn-mode').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const mode = button.dataset.mode;
+        document.querySelector('.basic-grid').classList.toggle('hide', mode === 'scientific');
+        document.querySelector('.scientific-grid').classList.toggle('hide', mode === 'basic');
     }
 
     appendNumber(number) {
@@ -55,11 +74,70 @@ class Calculator {
     }
 
     handleOperator(operator) {
+        if (operator === 'sqrt' || operator === 'sin' || operator === 'cos' || 
+            operator === 'tan' || operator === 'log' || operator === 'ln' || 
+            operator === 'exp' || operator === 'square' || operator === 'inverse' ||
+            operator === 'factorial') {
+            this.calculateUnary(operator);
+            return;
+        }
+
         if (this.operation !== null) this.calculate();
         this.previousValue = this.currentValue;
         this.operation = operator;
         this.shouldResetDisplay = true;
         this.updateHistory();
+    }
+
+    calculateUnary(operator) {
+        const value = parseFloat(this.currentValue);
+        let result;
+
+        switch(operator) {
+            case 'sqrt':
+                result = Math.sqrt(value);
+                break;
+            case 'sin':
+                result = Math.sin(value * Math.PI / 180);
+                break;
+            case 'cos':
+                result = Math.cos(value * Math.PI / 180);
+                break;
+            case 'tan':
+                result = Math.tan(value * Math.PI / 180);
+                break;
+            case 'log':
+                result = Math.log10(value);
+                break;
+            case 'ln':
+                result = Math.log(value);
+                break;
+            case 'exp':
+                result = Math.exp(value);
+                break;
+            case 'square':
+                result = value * value;
+                break;
+            case 'inverse':
+                result = 1 / value;
+                break;
+            case 'factorial':
+                result = this.factorial(value);
+                break;
+        }
+
+        this.currentValue = result.toString();
+        this.updateDisplay();
+    }
+
+    factorial(n) {
+        if (n < 0) return NaN;
+        if (n <= 1) return 1;
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
     }
 
     calculate() {
@@ -80,11 +158,11 @@ class Calculator {
             case 'divide':
                 result = prev / current;
                 break;
-            case 'sqrt':
-                result = Math.sqrt(current);
+            case 'power':
+                result = Math.pow(prev, current);
                 break;
-            case 'sin':
-                result = Math.sin(current * Math.PI / 180);
+            case 'percent':
+                result = prev * (current / 100);
                 break;
             default:
                 return;
@@ -127,6 +205,10 @@ class Calculator {
                 this.currentValue = this.currentValue.slice(0, -1) || '0';
                 this.updateDisplay();
                 break;
+            case 'toggle-sign':
+                this.currentValue = (parseFloat(this.currentValue) * -1).toString();
+                this.updateDisplay();
+                break;
         }
     }
 
@@ -162,6 +244,8 @@ class Calculator {
             case 'subtract': operatorSymbol = '-'; break;
             case 'multiply': operatorSymbol = '×'; break;
             case 'divide': operatorSymbol = '÷'; break;
+            case 'power': operatorSymbol = '^'; break;
+            case 'percent': operatorSymbol = '%'; break;
         }
         this.history.textContent = this.operation ? 
             `${this.previousValue} ${operatorSymbol}` : '';
