@@ -20,7 +20,7 @@ body {
     padding: 20px;
     box-shadow: 0 0 20px var(--neon-blue),
                 inset 0 0 10px var(--neon-pink);
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
 }
 
@@ -148,6 +148,34 @@ body {
     background: var(--neon-blue);
     color: black;
     font-weight: bold;
+}
+
+/* Graphing Interface Styles */
+.graphing-interface {
+    padding: 15px;
+}
+
+.graphing-interface input {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-green);
+}
+
+.graphing-interface button {
+    background: var(--neon-blue);
+    color: black;
+    border: none;
+}
+
+.graphing-interface button:hover {
+    background: var(--neon-pink);
+}
+
+#plot-area {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px var(--neon-blue);
 }
 
 @media (max-width: 480px) {

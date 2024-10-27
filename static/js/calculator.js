@@ -10,6 +10,7 @@ class Calculator {
         this.shouldResetDisplay = false;
         
         this.initializeEventListeners();
+        this.initializeGraphingFeatures();
     }
 
     initializeEventListeners() {
@@ -50,13 +51,57 @@ class Calculator {
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
     }
 
+    initializeGraphingFeatures() {
+        const plotBtn = document.getElementById('plot-btn');
+        if (plotBtn) {
+            plotBtn.addEventListener('click', () => this.plotFunction());
+        }
+    }
+
     switchMode(button) {
         document.querySelectorAll('.btn-mode').forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         
         const mode = button.dataset.mode;
-        document.querySelector('.basic-grid').classList.toggle('hide', mode === 'scientific');
-        document.querySelector('.scientific-grid').classList.toggle('hide', mode === 'basic');
+        document.querySelector('.basic-grid').classList.toggle('hide', mode !== 'basic');
+        document.querySelector('.scientific-grid').classList.toggle('hide', mode !== 'scientific');
+        document.querySelector('.graphing-interface').classList.toggle('hide', mode !== 'graphing');
+        document.querySelector('.display-container').classList.toggle('hide', mode === 'graphing');
+    }
+
+    async plotFunction() {
+        const functionInput = document.getElementById('function-input');
+        const xMin = parseFloat(document.getElementById('x-min').value);
+        const xMax = parseFloat(document.getElementById('x-max').value);
+
+        if (!functionInput.value) {
+            alert('Please enter a function to plot');
+            return;
+        }
+
+        try {
+            const response = await fetch('/plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    expression: functionInput.value,
+                    range: [xMin, xMax]
+                })
+            });
+
+            const data = await response.json();
+            if (data.error) {
+                alert('Error: ' + data.error);
+                return;
+            }
+
+            const plotData = JSON.parse(data.plot);
+            Plotly.newPlot('plot-area', plotData.data, plotData.layout);
+        } catch (error) {
+            alert('Error plotting function: ' + error.message);
+        }
     }
 
     appendNumber(number) {

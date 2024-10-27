@@ -6,6 +6,7 @@
     <title>Neon Scientific Calculator</title>
     <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <div class="container py-4">
@@ -13,6 +14,7 @@
             <div class="mode-switch">
                 <button class="btn-mode active" data-mode="basic">Basic</button>
                 <button class="btn-mode" data-mode="scientific">Scientific</button>
+                <button class="btn-mode" data-mode="graphing">Graphing</button>
             </div>
             <div class="display-container">
                 <div class="memory-indicator" id="memoryIndicator">M</div>
@@ -20,7 +22,9 @@
                 <input type="text" class="display" id="display" readonly>
             </div>
             
+            <!-- Basic Calculator Grid -->
             <div class="buttons-grid basic-grid">
+                <!-- Previous basic calculator buttons -->
                 <button class="btn-calc memory" data-action="mc">MC</button>
                 <button class="btn-calc memory" data-action="mr">MR</button>
                 <button class="btn-calc memory" data-action="m-plus">M+</button>
@@ -52,7 +56,9 @@
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
 
+            <!-- Scientific Calculator Grid -->
             <div class="buttons-grid scientific-grid hide">
+                <!-- Previous scientific calculator buttons -->
                 <button class="btn-calc function" data-action="clear">C</button>
                 <button class="btn-calc function" data-action="backspace">⌫</button>
                 <button class="btn-calc operator" data-action="power">x^y</button>
@@ -87,6 +93,25 @@
                 <button class="btn-calc number">0</button>
                 <button class="btn-calc number">.</button>
                 <button class="btn-calc equals" data-action="calculate">=</button>
+            </div>
+
+            <!-- Graphing Calculator Interface -->
+            <div class="graphing-interface hide">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="function-input" placeholder="Enter function (e.g., sin(x))">
+                    <button class="btn btn-outline-secondary" id="plot-btn">Plot</button>
+                </div>
+                <div class="range-inputs mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <input type="number" class="form-control" id="x-min" value="-10" placeholder="X min">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="x-max" value="10" placeholder="X max">
+                        </div>
+                    </div>
+                </div>
+                <div id="plot-area" style="width: 100%; height: 400px;"></div>
             </div>
         </div>
     </div>
