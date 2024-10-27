@@ -11,6 +11,14 @@
 <body>
     <div class="container py-4">
         <div class="calculator">
+            <div class="theme-selector">
+                <select id="themeSelect">
+                    <option value="blue-pink">Blue & Pink</option>
+                    <option value="green-purple">Green & Purple</option>
+                    <option value="orange-blue">Orange & Blue</option>
+                    <option value="red-cyan">Red & Cyan</option>
+                </select>
+            </div>
             <div class="mode-switch">
                 <button class="btn-mode active" data-mode="basic">Basic</button>
                 <button class="btn-mode" data-mode="scientific">Scientific</button>
@@ -22,9 +30,8 @@
                 <input type="text" class="display" id="display" readonly>
             </div>
             
-            <!-- Basic Calculator Grid -->
+            <!-- Rest of the calculator HTML remains the same -->
             <div class="buttons-grid basic-grid">
-                <!-- Previous basic calculator buttons -->
                 <button class="btn-calc memory" data-action="mc">MC</button>
                 <button class="btn-calc memory" data-action="mr">MR</button>
                 <button class="btn-calc memory" data-action="m-plus">M+</button>
@@ -56,9 +63,8 @@
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
 
-            <!-- Scientific Calculator Grid -->
             <div class="buttons-grid scientific-grid hide">
-                <!-- Previous scientific calculator buttons -->
+                <!-- Scientific calculator buttons -->
                 <button class="btn-calc function" data-action="clear">C</button>
                 <button class="btn-calc function" data-action="backspace">⌫</button>
                 <button class="btn-calc operator" data-action="power">x^y</button>
@@ -95,7 +101,6 @@
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
 
-            <!-- Graphing Calculator Interface -->
             <div class="graphing-interface hide">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="function-input" placeholder="Enter function (e.g., sin(x))">

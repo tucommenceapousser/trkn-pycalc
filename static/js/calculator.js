@@ -11,6 +11,27 @@ class Calculator {
         
         this.initializeEventListeners();
         this.initializeGraphingFeatures();
+        this.initializeThemeSelector();
+        
+        // Set default theme
+        this.setTheme('blue-pink');
+    }
+
+    initializeThemeSelector() {
+        const themeSelect = document.getElementById('themeSelect');
+        themeSelect.addEventListener('change', (e) => {
+            this.setTheme(e.target.value);
+        });
+
+        // Load saved theme or use default
+        const savedTheme = localStorage.getItem('calculatorTheme') || 'blue-pink';
+        themeSelect.value = savedTheme;
+        this.setTheme(savedTheme);
+    }
+
+    setTheme(theme) {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('calculatorTheme', theme);
     }
 
     initializeEventListeners() {
@@ -51,6 +72,7 @@ class Calculator {
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
     }
 
+    // Rest of the Calculator class methods remain the same
     initializeGraphingFeatures() {
         const plotBtn = document.getElementById('plot-btn');
         if (plotBtn) {
