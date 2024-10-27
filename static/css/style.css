@@ -39,6 +39,27 @@
     --theme-quaternary: #39ff14;
 }
 
+/* Custom Background Theme */
+[data-theme="custom-background"] {
+    --theme-primary: #00ffff;
+    --theme-secondary: #ff69b4;
+    --theme-tertiary: #39ff14;
+    --theme-quaternary: #bf00ff;
+}
+
+[data-theme="custom-background"] body {
+    background-image: url('../trkn.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+[data-theme="custom-background"] .calculator {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+}
+
 body {
     background-color: var(--background);
     min-height: 100vh;
@@ -57,6 +78,7 @@ body {
     width: 100%;
 }
 
+/* Rest of the CSS remains the same */
 .theme-selector {
     display: flex;
     justify-content: flex-end;
