@@ -33,6 +33,9 @@ class Calculator {
             button.addEventListener('click', () => this.handleFunction(button.dataset.action));
         });
 
+        // Equals button
+        document.querySelector('[data-action="calculate"]').addEventListener('click', () => this.calculate());
+
         // Keyboard support
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
     }
