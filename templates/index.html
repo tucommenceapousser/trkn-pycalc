@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Calculator</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-4">
+        <div class="calculator">
+            <div class="display-container">
+                <div class="memory-indicator" id="memoryIndicator">M</div>
+                <div class="history" id="history"></div>
+                <input type="text" class="display" id="display" readonly>
+            </div>
+            
+            <div class="buttons-grid">
+                <button class="btn-calc memory" data-action="mc">MC</button>
+                <button class="btn-calc memory" data-action="mr">MR</button>
+                <button class="btn-calc memory" data-action="m-plus">M+</button>
+                <button class="btn-calc memory" data-action="m-minus">M-</button>
+                
+                <button class="btn-calc function" data-action="clear">C</button>
+                <button class="btn-calc function" data-action="backspace">⌫</button>
+                <button class="btn-calc operator" data-action="sqrt">√</button>
+                <button class="btn-calc operator" data-action="divide">÷</button>
+                
+                <button class="btn-calc number">7</button>
+                <button class="btn-calc number">8</button>
+                <button class="btn-calc number">9</button>
+                <button class="btn-calc operator" data-action="multiply">×</button>
+                
+                <button class="btn-calc number">4</button>
+                <button class="btn-calc number">5</button>
+                <button class="btn-calc number">6</button>
+                <button class="btn-calc operator" data-action="subtract">-</button>
+                
+                <button class="btn-calc number">1</button>
+                <button class="btn-calc number">2</button>
+                <button class="btn-calc number">3</button>
+                <button class="btn-calc operator" data-action="add">+</button>
+                
+                <button class="btn-calc function" data-action="sin">sin</button>
+                <button class="btn-calc number">0</button>
+                <button class="btn-calc number">.</button>
+                <button class="btn-calc equals" data-action="calculate">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>
