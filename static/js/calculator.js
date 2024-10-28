@@ -1,4 +1,3 @@
-// Calculator class definition
 class Calculator {
     constructor() {
         this.initializeElements();
@@ -6,7 +5,7 @@ class Calculator {
     }
 
     initializeElements() {
-        // Initialize elements with null checks
+
         this.display = document.getElementById('display');
         this.history = document.getElementById('history');
         this.memoryIndicator = document.getElementById('memoryIndicator');
@@ -43,14 +42,10 @@ class Calculator {
             return;
         }
 
-        // Load saved theme or use default
         const savedTheme = localStorage.getItem('calculatorTheme') || 'custom-background';
         
-        // Set initial theme
         this.setTheme(savedTheme);
         themeSelect.value = savedTheme;
-
-        // Add change event listener
         themeSelect.addEventListener('change', (e) => {
             this.setTheme(e.target.value);
         });
@@ -63,7 +58,7 @@ class Calculator {
     }
 
     initializeEventListeners() {
-        // Safely add event listeners with null checks
+
         const addEventListenerSafely = (selector, eventType, callback) => {
             const elements = document.querySelectorAll(selector);
             elements.forEach(element => {
@@ -73,31 +68,23 @@ class Calculator {
             });
         };
 
-        // Mode switching
         addEventListenerSafely('.btn-mode', 'click', (e) => this.switchMode(e.target));
 
-        // Number buttons
         addEventListenerSafely('.number', 'click', (e) => this.appendNumber(e.target.textContent));
 
-        // Operator buttons
         addEventListenerSafely('.operator', 'click', (e) => this.handleOperator(e.target.dataset.action));
 
-        // Memory buttons
         addEventListenerSafely('.memory', 'click', (e) => this.handleMemory(e.target.dataset.action));
 
-        // Function buttons
         addEventListenerSafely('.function', 'click', (e) => this.handleFunction(e.target.dataset.action));
 
-        // Constant buttons
         addEventListenerSafely('.constant', 'click', (e) => this.appendNumber(e.target.dataset.value));
 
-        // Equals button
         const equalsButton = document.querySelector('[data-action="calculate"]');
         if (equalsButton) {
             equalsButton.addEventListener('click', () => this.calculate());
         }
 
-        // Keyboard support
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
     }
 
@@ -357,19 +344,18 @@ class Calculator {
     }
 }
 
-// Initialize calculator when DOM is loaded
+
 let calculatorInstance = null;
 const initializeCalculator = () => {
     if (!calculatorInstance) {
         calculatorInstance = new Calculator();
     }
     if (!calculatorInstance.initialize()) {
-        // If initialization fails, retry after a short delay
+
         setTimeout(initializeCalculator, 100);
     }
 };
 
-// Ensure DOM is fully loaded before initialization
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeCalculator);
 } else {

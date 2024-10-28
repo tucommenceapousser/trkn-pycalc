@@ -16,7 +16,6 @@ def plot():
     
     x = np.linspace(x_range[0], x_range[1], 1000)
     try:
-        # Replace common mathematical functions with numpy equivalents
         expression = expression.replace('sin', 'np.sin')
         expression = expression.replace('cos', 'np.cos')
         expression = expression.replace('tan', 'np.tan')
@@ -27,10 +26,8 @@ def plot():
         expression = expression.replace('e', 'np.e')
         expression = expression.replace('^', '**')
         
-        # Safely evaluate the expression
         y = eval(expression, {"__builtins__": None}, {"x": x, "np": np})
         
-        # Create the plot
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=x.tolist(), y=y.tolist(), mode='lines', name=expression))
         fig.update_layout(
