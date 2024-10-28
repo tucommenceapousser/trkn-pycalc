@@ -59,19 +59,6 @@ body {
     position: relative;
 }
 
-/* Custom Background Theme Body Styles */
-[data-theme="custom-background"] body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/static/trkn.jpg') center/cover no-repeat fixed;
-    opacity: 0.6;
-    z-index: 0;
-}
-
 /* Calculator Styles */
 .calculator {
     background: rgba(0, 0, 0, 0.8);
@@ -87,10 +74,24 @@ body {
 
 /* Custom Background Theme Calculator Styles */
 [data-theme="custom-background"] .calculator {
+    position: relative;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="custom-background"] .calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/trkn.jpg') center/cover no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: 20px;
 }
 
 /* Theme Selector Styles */
