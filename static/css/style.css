@@ -1,4 +1,4 @@
-/* Theme definitions */
+
 :root {
     --theme-primary: #00ffff;
     --theme-secondary: #ff69b4;
@@ -7,7 +7,7 @@
     --background: #1a1a1a;
 }
 
-/* Blue-Pink Theme */
+
 [data-theme="blue-pink"] {
     --theme-primary: #00ffff;
     --theme-secondary: #ff69b4;
@@ -15,7 +15,7 @@
     --theme-quaternary: #bf00ff;
 }
 
-/* Green-Purple Theme */
+
 [data-theme="green-purple"] {
     --theme-primary: #39ff14;
     --theme-secondary: #bf00ff;
@@ -23,7 +23,7 @@
     --theme-quaternary: #ff69b4;
 }
 
-/* Orange-Blue Theme */
+
 [data-theme="orange-blue"] {
     --theme-primary: #ff6b00;
     --theme-secondary: #00ffff;
@@ -31,7 +31,7 @@
     --theme-quaternary: #39ff14;
 }
 
-/* Red-Cyan Theme */
+
 [data-theme="red-cyan"] {
     --theme-primary: #ff0000;
     --theme-secondary: #00ffff;
@@ -39,7 +39,7 @@
     --theme-quaternary: #39ff14;
 }
 
-/* Custom Background Theme */
+
 [data-theme="custom-background"] {
     --theme-primary: #00ffff;
     --theme-secondary: #ff69b4;
@@ -47,7 +47,7 @@
     --theme-quaternary: #bf00ff;
 }
 
-/* Base Styles */
+
 body {
     background-color: var(--background);
     min-height: 100vh;
@@ -59,7 +59,7 @@ body {
     position: relative;
 }
 
-/* Calculator Styles */
+
 .calculator {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
@@ -72,7 +72,7 @@ body {
     z-index: 1;
 }
 
-/* Custom Background Theme Calculator Styles */
+
 [data-theme="custom-background"] .calculator {
     position: relative;
     background: rgba(0, 0, 0, 0.85);
@@ -94,7 +94,7 @@ body {
     border-radius: 20px;
 }
 
-/* Theme Selector Styles */
+
 .theme-selector {
     display: flex;
     justify-content: flex-end;
@@ -112,7 +112,7 @@ body {
     cursor: pointer;
 }
 
-/* Mode Switch Styles */
+
 .mode-switch {
     display: flex;
     justify-content: center;
@@ -138,7 +138,7 @@ body {
     color: black;
 }
 
-/* Display Styles */
+
 .display-container {
     position: relative;
     margin-bottom: 20px;
@@ -179,7 +179,7 @@ body {
     transition: opacity 0.3s;
 }
 
-/* Button Grid Styles */
+
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -196,7 +196,7 @@ body {
     display: none;
 }
 
-/* Button Styles */
+
 .btn-calc {
     padding: 15px;
     border: none;
@@ -247,7 +247,7 @@ body {
     font-weight: bold;
 }
 
-/* Graphing Interface Styles */
+
 .graphing-interface {
     padding: 15px;
     position: relative;
@@ -277,7 +277,7 @@ body {
     box-shadow: 0 0 10px var(--theme-primary);
 }
 
-/* Responsive Styles */
+
 @media (max-width: 480px) {
     .calculator {
         margin: 10px;
