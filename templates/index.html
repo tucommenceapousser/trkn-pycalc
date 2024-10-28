@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neon Scientific Calculator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A visually striking web-based scientific calculator with neon-on-dark theme, featuring basic and advanced mathematical functions, graphing capabilities, and multiple color schemes.">
+    <meta name="keywords" content="calculator, scientific calculator, graphing calculator, neon theme, web calculator">
+    <meta name="author" content="TRHACKNON">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Neon Scientific Calculator">
+    <meta property="og:description" content="A visually striking web-based scientific calculator with neon-on-dark theme and advanced features.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neon-calculator.repl.co">
+    <meta property="og:image" content="{{ url_for('static', filename='trkn.jpg') }}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neon Scientific Calculator">
+    <meta name="twitter:description" content="A visually striking web-based scientific calculator with neon-on-dark theme and advanced features.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='trkn.jpg') }}">
+    
     <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -32,6 +51,7 @@
                 <input type="text" class="display" id="display" readonly>
             </div>
             <div class="buttons-grid basic-grid">
+                <!-- Basic calculator buttons (unchanged) -->
                 <button class="btn-calc memory" data-action="mc">MC</button>
                 <button class="btn-calc memory" data-action="mr">MR</button>
                 <button class="btn-calc memory" data-action="m-plus">M+</button>
@@ -63,6 +83,7 @@
                 <button class="btn-calc equals" data-action="calculate">=</button>
             </div>
             <div class="buttons-grid scientific-grid hide">
+                <!-- Scientific calculator buttons (unchanged) -->
                 <button class="btn-calc function" data-action="clear">C</button>
                 <button class="btn-calc function" data-action="backspace">⌫</button>
                 <button class="btn-calc operator" data-action="power">x^y</button>
@@ -115,6 +136,9 @@
                 </div>
                 <div id="plot-area" style="width: 100%; height: 400px;"></div>
             </div>
+            <footer class="calculator-footer">
+                <div class="neon-text">python calc by TRHACKNON</div>
+            </footer>
         </div>
     </div>
 </body>
