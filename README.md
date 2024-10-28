@@ -1,5 +1,7 @@
  # TRKN PyCalc
 
+![Calculatrice scientifique TRHACKNON](https://k.top4top.io/p_3223u1lcd0.jpg)
+
  Bienvenue dans TRKN PyCalc, une élégante calculatrice web développée en Python avec Flask et Plotly. Ce projet est conçu pour vous offrir une expérience utilisateur enrichie avec plusieurs modes, options et thèmes personnalisables.
 
  ## Fonctionnalités
