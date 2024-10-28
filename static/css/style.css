@@ -47,18 +47,6 @@
     --theme-quaternary: #bf00ff;
 }
 
-/* Custom Background Theme Styles */
-html[data-theme="custom-background"],
-html[data-theme="custom-background"] body {
-    background: url('../trkn.jpg') center center/cover no-repeat fixed !important;
-}
-
-[data-theme="custom-background"] .calculator {
-    background: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
 /* Base Styles */
 body {
     background-color: var(--background);
@@ -81,11 +69,47 @@ body {
     width: 100%;
 }
 
+/* Custom Background Theme Calculator Styles */
+[data-theme="custom-background"] .calculator {
+    background: rgba(0, 0, 0, 0.85);
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme="custom-background"] .calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../trkn.jpg') center/cover no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+[data-theme="custom-background"] .calculator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+    border-radius: inherit;
+}
+
 /* Theme Selector Styles */
 .theme-selector {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .theme-selector select {
@@ -103,6 +127,8 @@ body {
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .btn-mode {
@@ -125,6 +151,7 @@ body {
 .display-container {
     position: relative;
     margin-bottom: 20px;
+    z-index: 2;
 }
 
 .display {
@@ -166,6 +193,8 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .scientific-grid {
@@ -230,6 +259,8 @@ body {
 /* Graphing Interface Styles */
 .graphing-interface {
     padding: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 .graphing-interface input {
