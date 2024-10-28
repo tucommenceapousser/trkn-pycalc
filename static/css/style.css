@@ -56,6 +56,20 @@ body {
     justify-content: center;
     margin: 0;
     padding: 0;
+    position: relative;
+}
+
+/* Custom Background Theme Body Styles */
+[data-theme="custom-background"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/trkn.jpg') center/cover no-repeat fixed;
+    opacity: 0.6;
+    z-index: 0;
 }
 
 /* Calculator Styles */
@@ -67,40 +81,16 @@ body {
                 inset 0 0 10px var(--theme-secondary);
     max-width: 600px;
     width: 100%;
-}
-
-/* Custom Background Theme Calculator Styles */
-[data-theme="custom-background"] .calculator {
-    background: rgba(0, 0, 0, 0.75);
     position: relative;
     z-index: 1;
 }
 
-[data-theme="custom-background"] .calculator::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/static/trkn.jpg') center/cover no-repeat;
-    opacity: 0.8;
-    z-index: -2;
-    border-radius: inherit;
-}
-
-[data-theme="custom-background"] .calculator::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: -1;
-    border-radius: inherit;
+/* Custom Background Theme Calculator Styles */
+[data-theme="custom-background"] .calculator {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Theme Selector Styles */
