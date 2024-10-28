@@ -44,7 +44,7 @@ class Calculator {
         }
 
         // Load saved theme or use default
-        const savedTheme = localStorage.getItem('calculatorTheme') || 'blue-pink';
+        const savedTheme = localStorage.getItem('calculatorTheme') || 'custom-background';
         
         // Set initial theme
         this.setTheme(savedTheme);
