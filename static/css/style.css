@@ -7,8 +7,180 @@
     --background: #1a1a1a;
 }
 
-/* Previous CSS styles remain unchanged ... */
-[Previous CSS content remains the same until line 291]
+/* Theme variations */
+[data-theme="blue-pink"] {
+    --theme-primary: #00ffff;
+    --theme-secondary: #ff69b4;
+}
+
+[data-theme="green-purple"] {
+    --theme-primary: #39ff14;
+    --theme-secondary: #bf00ff;
+}
+
+[data-theme="orange-blue"] {
+    --theme-primary: #ffa500;
+    --theme-secondary: #00bfff;
+}
+
+[data-theme="red-cyan"] {
+    --theme-primary: #ff0000;
+    --theme-secondary: #00ffff;
+}
+
+[data-theme="custom-background"] .calculator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../trkn.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    filter: blur(3px);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+body {
+    background-color: var(--background);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px var(--theme-primary),
+                0 0 40px var(--theme-secondary);
+    position: relative;
+    max-width: 100%;
+    width: 400px;
+}
+
+.display-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.memory-indicator {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: var(--theme-primary);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.history {
+    color: var(--theme-secondary);
+    text-align: right;
+    min-height: 20px;
+    padding: 5px;
+}
+
+.display {
+    width: 100%;
+    padding: 10px;
+    font-size: 2em;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn-calc {
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px var(--theme-primary);
+}
+
+.btn-calc:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px var(--theme-primary);
+}
+
+.operator {
+    color: var(--theme-secondary);
+    text-shadow: 0 0 5px var(--theme-secondary);
+}
+
+.equals {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--theme-secondary);
+    text-shadow: 0 0 5px var(--theme-secondary);
+}
+
+.mode-switch {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.btn-mode {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-mode.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px var(--theme-primary);
+}
+
+.hide {
+    display: none !important;
+}
+
+.theme-selector {
+    margin-bottom: 20px;
+}
+
+.theme-selector select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    border: 1px solid var(--theme-primary);
+}
+
+.graphing-interface input {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--theme-primary);
+    border: 1px solid var(--theme-secondary);
+}
+
+.graphing-interface button {
+    color: var(--theme-primary);
+    border-color: var(--theme-secondary);
+}
 
 /* Footer Styles */
 .calculator-footer {
