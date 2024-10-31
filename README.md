@@ -51,6 +51,10 @@
 
  Changez le thème en utilisant le sélecteur de thème situé en haut de l'application.
 
+ ## Screenshots
+ ![Calculatrice graphik TRHACKNON](https://k.top4top.io/p_3226jy0580.jpg)
+![Calculatrice custom TRHACKNON](https://h.top4top.io/p_3226a6z160.jpg)
+
  ## Contribution
 
  Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations ou des corrections de bug, veuillez ouvrir une issue ou soumettre une pull request.
